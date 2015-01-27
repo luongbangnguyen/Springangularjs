@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlrewrite use-query-string="false">
+
+   	<rule>	
+		<from>^/$</from>
+		<to qsappend="true" last="true">/WEB-INF/pages/home.jsp</to>
+	</rule>
+</urlrewrite>
