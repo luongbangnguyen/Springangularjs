@@ -62,8 +62,8 @@
 	<tiles:insertAttribute name="navigation" />
 	<tiles:insertAttribute name="banner"/>
 	<div>
-		<div style="float: left; background-color: red; width: 250px; height: 500px">
-		
+		<div style="float: left; width: 250px;">
+			
 		</div>
 		<div style="float: left">
 			<tiles:insertAttribute name="body" />
