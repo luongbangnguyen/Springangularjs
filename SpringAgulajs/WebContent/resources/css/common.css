@@ -235,3 +235,8 @@ div.user-menu div.user-menu-content:not(.active){
 		max-height: 400px;
 	}
 }
+.side-nav{
+	position: static !important;
+	top: auto !important;
+	margin-left: 0px !important;
+}
