@@ -1,11 +1,11 @@
 <script src="${pageContext.request.contextPath}/resources/script/profile.js"></script>
 <div style="width: 97%; margin-left: auto; margin-right: auto;">
-	<div class="row user-menu-container square">
+	<div class="row user-menu-container square" ng-controller="user">
 		<div class="col-md-7 user-details">
 			<div class="row coralbg white">
 				<div class="col-md-6 no-pad">
 					<div class="user-pad">
-						<h3>Welcome back, Jessica</h3>
+						<h3>Welcome back, {{user.data == null ? 'User' :user.data.fistName + ' ' + user.data.lastName}}</h3>
 						<h4 class="white">
 							<i class="fa fa-check-circle-o"></i> San Antonio, TX
 						</h4>

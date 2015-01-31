@@ -63,8 +63,10 @@
 	<tiles:insertAttribute name="banner"/>
 	<div>
 		<div style="float: left; width: 18%;">
-			<div class="navbar navbar-inverse">
-				<jsp:include page="../common/menuLeft.jsp"></jsp:include>
+			<div class="banner">
+				<div class="navbar navbar-inverse">
+					<jsp:include page="../common/menuLeft.jsp"></jsp:include>
+				</div>
 			</div>
 		</div>
 		<div style="float: left; width: 81.6%; background-color: white;">
