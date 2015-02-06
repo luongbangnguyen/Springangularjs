@@ -114,6 +114,17 @@
 			<artifactId>zul</artifactId>
 			<version>7.0.3</version>
 		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkplus</artifactId>
+			<version>7.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.zkoss.zk</groupId>
+			<artifactId>zkbind</artifactId>
+			<version>7.0.3</version>
+		</dependency>
+
 
 	</dependencies>
 </project>

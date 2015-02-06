@@ -2,7 +2,7 @@
 <urlrewrite use-query-string="false">
 
    	<rule>	
-		<from>^/$</from>
-		<to qsappend="true" last="true">/WEB-INF/pages/home.jsp</to>
+		<from>^/cp$</from>
+		<to qsappend="true" last="true">/WEB-INF/zul/index.zul</to>
 	</rule>
 </urlrewrite>

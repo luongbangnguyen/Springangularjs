@@ -3,9 +3,10 @@ springAngular.controller('login', [ '$scope', '$http','$location', function($sco
 	$scope.password = '123456';
 	$scope.information = '';
 	$scope.submit = function() {
+		console.log(host);
 		$http({
 			method : 'POST',
-			url : host +'user/login',
+			url : api +'user/login',
 			params : {
 				email : $scope.email,
 				password : $scope.password
