@@ -13,8 +13,15 @@ public class User implements Serializable{
 	private String lastName;
 	private String password;
 
+	public User(String email){
+		this(email,null);
+	}
+	
+	public User(String email,String fistName){
+		this(email, fistName,null);
+	}
+	
 	public User(String email, String fistName, String lastName) {
-		super();
 		this.email = email;
 		this.fistName = fistName;
 		this.lastName = lastName;
