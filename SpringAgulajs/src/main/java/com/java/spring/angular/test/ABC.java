@@ -1,4 +1,4 @@
-package test;
+package com.java.spring.angular.test;
 
 public class ABC<T extends Number, E> {
 	private T key;

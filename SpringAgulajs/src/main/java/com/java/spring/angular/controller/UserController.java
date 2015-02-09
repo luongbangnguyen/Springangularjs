@@ -30,7 +30,8 @@ public class UserController implements Serializable{
 	
 	@RequestMapping(value="/login",method=RequestMethod.POST)
 	public ModelAndView login( @RequestParam(value="email") String email, @RequestParam(value="password") String password){
-		if(email.trim().equals("test@liferay.com") && password.trim().equals("123456")){
+		boolean check = email != null && password != null && email.trim().equals("test@liferay.com") && password.trim().equals("123456");
+		if(check){
 			setUser(new User("luongbangvh@gmail.com","luong bang", "nguyen"));
 			return new ModelAndView(new Boolean(true));
 		}
