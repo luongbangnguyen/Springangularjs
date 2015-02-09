@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.java.spring.angular.model.ModelAndView;
 import com.java.spring.angular.model.User;
 
-@RestController
 @Scope(value="session")
 @RequestMapping(value="/api/user")
 public class UserController implements Serializable{
