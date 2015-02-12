@@ -7,10 +7,10 @@ import javax.persistence.MappedSuperclass;
 @MappedSuperclass
 public class Model {
 	
-	@Id
-	@GeneratedValue
 	private long id;
 
+	@Id
+	@GeneratedValue
 	public long getId() {
 		return id;
 	}
