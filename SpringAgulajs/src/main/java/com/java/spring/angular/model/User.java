@@ -1,8 +1,22 @@
 package com.java.spring.angular.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
-public class User implements Serializable{
+import javax.persistence.Entity;
+import javax.persistence.Index;
+import javax.persistence.Table;
+
+import com.java.model.Model;
+
+/**
+ * 
+ * @author BangNL
+ *
+ */
+@Entity
+@Table(name="user",indexes={@Index(columnList = "email,fistName,lastName")})
+public class User extends Model implements  Serializable{
 
 	/**
 	 * 
@@ -12,7 +26,12 @@ public class User implements Serializable{
 	private String fistName;
 	private String lastName;
 	private String password;
-	
+	private String department;
+	private Date dateOfBirth;
+	private String gender;
+	private String mobile;
+	private String landLine;
+	private String image;
 
 	public User(String email){
 		this(email,null);
@@ -71,6 +90,11 @@ public class User implements Serializable{
 		this.password = password;
 	}
 	
+	/**
+	 * builder a object User
+	 * @author BangNL
+	 *
+	 */
 	public static class Builder{
 		private String email;
 		private String fistName;
@@ -93,9 +117,61 @@ public class User implements Serializable{
 			return this;
 		}
 		
+		/**
+		 * execution builder object
+		 * @return
+		 */
 		public User build(){
 			 return new User(this);
 		}
+	}
+
+	public String getDepartment() {
+		return department;
+	}
+
+	public void setDepartment(String department) {
+		this.department = department;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
+	}
+
+	public String getGender() {
+		return gender;
+	}
+
+	public void setGender(String gender) {
+		this.gender = gender;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
+	}
+
+	public String getLandLine() {
+		return landLine;
+	}
+
+	public void setLandLine(String landLine) {
+		this.landLine = landLine;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 	
 

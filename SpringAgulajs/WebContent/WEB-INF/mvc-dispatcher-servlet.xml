@@ -24,7 +24,7 @@ http://www.springframework.org/schema/mvc
 			fall back to looking at the Accept headers -->
 		<property name="favorPathExtension" value="false" />
 	</bean>
-	<context:component-scan base-package="com.java.spring.angular" />
+	<context:component-scan base-package="com.java" />
 	<mvc:resources location="resources/" mapping="/resources/**" />
 	<mvc:resources location="WEB-INF/controller/" mapping="/controller/**" />
 
@@ -41,5 +41,49 @@ http://www.springframework.org/schema/mvc
 		</property>
 		<property name="preparerFactoryClass"
 			value="org.springframework.web.servlet.view.tiles3.SpringBeanPreparerFactory" />
+	</bean>
+	<bean id="hikariConfig" class="com.zaxxer.hikari.HikariConfig">
+		<property name="dataSourceProperties">
+			<props>
+				<prop key="serverName">localhost</prop>
+				<prop key="databaseName">springangular</prop>
+				<prop key="cachePrepStmts">true</prop>
+				<prop key="prepStmtCacheSize">1000</prop>
+				<prop key="prepStmtCacheSqlLimit">4096</prop>
+				<prop key="useServerPrepStmts">true</prop>
+				<prop key="cacheResultSetMetadata">true</prop>
+				<prop key="allowMultiQueries">true</prop>
+				<prop key="metadataCacheSize">1000</prop>
+				<prop key="useLocalSessionState">true</prop>
+				<prop key="useLocalTransactionState">true</prop>
+				<prop key="cacheCallableStmts">true</prop>
+				<prop key="callableStmtCacheSize">1000</prop>
+				<prop key="elideSetAutoCommits">true</prop>
+				<prop key="user">root</prop>
+				<prop key="password"></prop>
+				<prop key="useUnicode">true</prop>
+				<prop key="characterEncoding">UTF-8</prop>
+				<prop key="characterSetResults">UTF-8</prop>
+			</props>
+		</property>
+		<property name="dataSourceClassName"
+			value="com.mysql.jdbc.jdbc2.optional.MysqlDataSource" />
+	</bean>
+	<bean id="mainDataSource" class="com.zaxxer.hikari.HikariDataSource"
+		destroy-method="shutdown">
+		<constructor-arg ref="hikariConfig" />
+	</bean>
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="mainDataSource" />
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="databasePlatform" value="org.hibernate.dialect.MySQL5Dialect" />
+			</bean>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 </beans>

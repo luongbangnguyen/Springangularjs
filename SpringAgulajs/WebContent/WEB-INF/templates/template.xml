@@ -26,9 +26,8 @@
 		<put-attribute name="title" value="Login"/>
 		<put-attribute name="body" value="/WEB-INF/pages/login.jsp"/>
 	</definition>
-	<definition name="profile" extends="BannerTemplate">
+	<definition name="profile" extends="DefaultTemplate">
 		<put-attribute name="title" value="Profile"/>
-		<put-attribute name="banner" value="/WEB-INF/common/profileBanner.jsp"></put-attribute>
 		<put-attribute name="body" value="/WEB-INF/pages/profile.jsp"/>
 	</definition>
 </tiles-definitions>
