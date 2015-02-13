@@ -7,6 +7,7 @@ import com.mysema.query.types.path.*;
 import com.mysema.query.types.PathMetadata;
 import javax.annotation.Generated;
 import com.mysema.query.types.Path;
+import com.mysema.query.types.path.PathInits;
 
 
 /**
@@ -16,6 +17,8 @@ import com.mysema.query.types.Path;
 public class QProduct extends EntityPathBase<Product> {
 
     private static final long serialVersionUID = 1544400380L;
+
+    private static final PathInits INITS = PathInits.DIRECT2;
 
     public static final QProduct product = new QProduct("product");
 
@@ -28,16 +31,34 @@ public class QProduct extends EntityPathBase<Product> {
 
     public final StringPath type = createString("type");
 
+    protected QTypeProduct typeProduct;
+
     public QProduct(String variable) {
-        super(Product.class, forVariable(variable));
+        this(Product.class, forVariable(variable), INITS);
     }
 
     public QProduct(Path<? extends Product> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), path.getMetadata().isRoot() ? INITS : PathInits.DEFAULT);
     }
 
     public QProduct(PathMetadata<?> metadata) {
-        super(Product.class, metadata);
+        this(metadata, metadata.isRoot() ? INITS : PathInits.DEFAULT);
+    }
+
+    public QProduct(PathMetadata<?> metadata, PathInits inits) {
+        this(Product.class, metadata, inits);
+    }
+
+    public QProduct(Class<? extends Product> type, PathMetadata<?> metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.typeProduct = inits.isInitialized("typeProduct") ? new QTypeProduct(forProperty("typeProduct")) : null;
+    }
+
+    public QTypeProduct typeProduct() {
+        if (typeProduct == null) {
+            typeProduct = new QTypeProduct(forProperty("typeProduct"));
+        }
+        return typeProduct;
     }
 
 }
