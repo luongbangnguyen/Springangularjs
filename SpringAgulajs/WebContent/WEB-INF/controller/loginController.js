@@ -6,7 +6,7 @@ springAngular.controller('login', [ '$scope', '$http','$location', function($sco
 		console.log(host);
 		$http({
 			method : 'POST',
-			url : api +'user/login',
+			url : api +'user/login.html',
 			params : {
 				email : $scope.email,
 				password : $scope.password
