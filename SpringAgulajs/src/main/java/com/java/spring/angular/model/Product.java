@@ -1,31 +1,18 @@
 package com.java.spring.angular.model;
 
 import javax.persistence.Entity;
+import javax.persistence.Index;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.java.model.Model;
+import com.java.model.ModelProduct;
 
 @Entity
-@Table
-public class Product extends Model{
-	private String name;
-	private String type;
+@Table(name="product",indexes={@Index(columnList = "name")})
+public class Product extends ModelProduct{
+	
 	private TypeProduct typeProduct;
-	
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public String getType() {
-		return type;
-	}
-	public void setType(String type) {
-		this.type = type;
-	}
-	
 	@ManyToOne
 	public TypeProduct getTypeProduct() {
 		return typeProduct;

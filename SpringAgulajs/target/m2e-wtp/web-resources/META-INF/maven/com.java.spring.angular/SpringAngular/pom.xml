@@ -5,6 +5,9 @@
 	<artifactId>SpringAngular</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
+	<properties>
+		<version.liquibase>2.0.5</version.liquibase>
+	</properties>
 	<repositories>
 		<repository>
 			<id>central</id>
@@ -203,6 +206,16 @@
 			<artifactId>javax.inject</artifactId>
 			<version>1</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>commons-configuration</groupId>
+			<artifactId>commons-configuration</artifactId>
+			<version>1.10</version>
+		</dependency>
 
 	</dependencies>
 	<build>
@@ -239,6 +252,31 @@
 						<querydsl.createDefaultVariable>true</querydsl.createDefaultVariable>
 					</options>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.liquibase</groupId>
+				<artifactId>liquibase-maven-plugin</artifactId>
+				<version>${version.liquibase}</version>
+				<configuration>
+					<changeLogFile>liquibase/databaseChangeLog.xml</changeLogFile>
+					<driver>com.mysql.jdbc.Driver</driver>
+					<url>jdbc:mysql://localhost/springangular</url>
+					<username>root</username>
+					<password></password>
+
+					<contexts />
+				</configuration>
+
+				<executions>
+					<execution>
+						<id>reset-database-lb</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>dropAll</goal>
+							<goal>update</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>

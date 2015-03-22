@@ -22,14 +22,16 @@ public class QProduct extends EntityPathBase<Product> {
 
     public static final QProduct product = new QProduct("product");
 
-    public final com.java.model.QModel _super = new com.java.model.QModel(this);
+    public final com.java.model.QModelProduct _super = new com.java.model.QModelProduct(this);
+
+    //inherited
+    public final StringPath code = _super.code;
 
     //inherited
     public final NumberPath<Long> id = _super.id;
 
-    public final StringPath name = createString("name");
-
-    public final StringPath type = createString("type");
+    //inherited
+    public final StringPath name = _super.name;
 
     protected QTypeProduct typeProduct;
 
@@ -51,7 +53,7 @@ public class QProduct extends EntityPathBase<Product> {
 
     public QProduct(Class<? extends Product> type, PathMetadata<?> metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.typeProduct = inits.isInitialized("typeProduct") ? new QTypeProduct(forProperty("typeProduct")) : null;
+        this.typeProduct = inits.isInitialized("typeProduct") ? new QTypeProduct(forProperty("typeProduct"), inits.get("typeProduct")) : null;
     }
 
     public QTypeProduct typeProduct() {

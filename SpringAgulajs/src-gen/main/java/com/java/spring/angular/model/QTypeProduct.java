@@ -7,6 +7,7 @@ import com.mysema.query.types.path.*;
 import com.mysema.query.types.PathMetadata;
 import javax.annotation.Generated;
 import com.mysema.query.types.Path;
+import com.mysema.query.types.path.PathInits;
 
 
 /**
@@ -17,25 +18,49 @@ public class QTypeProduct extends EntityPathBase<TypeProduct> {
 
     private static final long serialVersionUID = -1824279838L;
 
+    private static final PathInits INITS = PathInits.DIRECT2;
+
     public static final QTypeProduct typeProduct = new QTypeProduct("typeProduct");
 
-    public final com.java.model.QModel _super = new com.java.model.QModel(this);
+    public final com.java.model.QModelProduct _super = new com.java.model.QModelProduct(this);
+
+    //inherited
+    public final StringPath code = _super.code;
 
     //inherited
     public final NumberPath<Long> id = _super.id;
 
-    public final StringPath name = createString("name");
+    //inherited
+    public final StringPath name = _super.name;
+
+    protected QSupplier supplier;
 
     public QTypeProduct(String variable) {
-        super(TypeProduct.class, forVariable(variable));
+        this(TypeProduct.class, forVariable(variable), INITS);
     }
 
     public QTypeProduct(Path<? extends TypeProduct> path) {
-        super(path.getType(), path.getMetadata());
+        this(path.getType(), path.getMetadata(), path.getMetadata().isRoot() ? INITS : PathInits.DEFAULT);
     }
 
     public QTypeProduct(PathMetadata<?> metadata) {
-        super(TypeProduct.class, metadata);
+        this(metadata, metadata.isRoot() ? INITS : PathInits.DEFAULT);
+    }
+
+    public QTypeProduct(PathMetadata<?> metadata, PathInits inits) {
+        this(TypeProduct.class, metadata, inits);
+    }
+
+    public QTypeProduct(Class<? extends TypeProduct> type, PathMetadata<?> metadata, PathInits inits) {
+        super(type, metadata, inits);
+        this.supplier = inits.isInitialized("supplier") ? new QSupplier(forProperty("supplier")) : null;
+    }
+
+    public QSupplier supplier() {
+        if (supplier == null) {
+            supplier = new QSupplier(forProperty("supplier"));
+        }
+        return supplier;
     }
 
 }

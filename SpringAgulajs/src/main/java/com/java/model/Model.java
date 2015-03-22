@@ -8,7 +8,6 @@ import javax.persistence.MappedSuperclass;
 public class Model {
 	
 	private long id;
-
 	@Id
 	@GeneratedValue
 	public long getId() {
