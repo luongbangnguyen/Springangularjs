@@ -7,7 +7,7 @@
     <changeSet id="20150321_user" author="bangnl">
         <createTable tableName="user">
             <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" nullable="false"/>
+                <constraints primaryKey="true" primaryKeyName="PK_user" nullable="false"/>
             </column>
             <column name="email" type="varchar(50)">
                 <constraints nullable="false"/>

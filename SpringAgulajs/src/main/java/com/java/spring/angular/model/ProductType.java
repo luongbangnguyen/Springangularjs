@@ -8,8 +8,8 @@ import javax.persistence.Table;
 import com.java.model.ModelProduct;
 
 @Entity
-@Table(name="typeProduct", indexes=@Index(columnList = "name"))
-public class TypeProduct extends ModelProduct{
+@Table(name="productType", indexes=@Index(columnList = "name"))
+public class ProductType extends ModelProduct{
 	
 	@ManyToOne
 	private Supplier supplier;

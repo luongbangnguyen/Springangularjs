@@ -33,7 +33,7 @@ public class QProduct extends EntityPathBase<Product> {
     //inherited
     public final StringPath name = _super.name;
 
-    protected QTypeProduct typeProduct;
+    protected QProductType typeProduct;
 
     public QProduct(String variable) {
         this(Product.class, forVariable(variable), INITS);
@@ -53,12 +53,12 @@ public class QProduct extends EntityPathBase<Product> {
 
     public QProduct(Class<? extends Product> type, PathMetadata<?> metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.typeProduct = inits.isInitialized("typeProduct") ? new QTypeProduct(forProperty("typeProduct"), inits.get("typeProduct")) : null;
+        this.typeProduct = inits.isInitialized("typeProduct") ? new QProductType(forProperty("typeProduct"), inits.get("typeProduct")) : null;
     }
 
-    public QTypeProduct typeProduct() {
+    public QProductType typeProduct() {
         if (typeProduct == null) {
-            typeProduct = new QTypeProduct(forProperty("typeProduct"));
+            typeProduct = new QProductType(forProperty("typeProduct"));
         }
         return typeProduct;
     }

@@ -3,20 +3,17 @@
     xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-2.0.xsd">
-    <changeSet id="20150321_product" author="bangnl">
-        <createTable tableName="product">
+    <changeSet id="20150321_supplier" author="bangnl">
+        <createTable tableName="supplier">
             <column name="id" type="int" autoIncrement="true">
-                <constraints primaryKey="true" primaryKeyName="PK_product"/>
+                <constraints primaryKey="true" primaryKeyName="PK_supplier" nullable="false"/>
             </column>
             <column name="code" type="varchar(50)">
             	<constraints unique="true"/>
             </column>
             <column name="name" type="varchar(200)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="productType_id" type="int" >
-            	<constraints references="productType(id)" foreignKeyName="FK_product_product_type"/>
-            </column>
+                <constraints nullable="true"/>
+            </column>           
         </createTable>
     </changeSet>
 </databaseChangeLog>

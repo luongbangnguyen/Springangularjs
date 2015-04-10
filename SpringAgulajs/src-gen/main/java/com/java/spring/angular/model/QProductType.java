@@ -11,16 +11,16 @@ import com.mysema.query.types.path.PathInits;
 
 
 /**
- * QTypeProduct is a Querydsl query type for TypeProduct
+ * QProductType is a Querydsl query type for ProductType
  */
 @Generated("com.mysema.query.codegen.EntitySerializer")
-public class QTypeProduct extends EntityPathBase<TypeProduct> {
+public class QProductType extends EntityPathBase<ProductType> {
 
-    private static final long serialVersionUID = -1824279838L;
+    private static final long serialVersionUID = 561402710L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
-    public static final QTypeProduct typeProduct = new QTypeProduct("typeProduct");
+    public static final QProductType productType = new QProductType("productType");
 
     public final com.java.model.QModelProduct _super = new com.java.model.QModelProduct(this);
 
@@ -35,23 +35,23 @@ public class QTypeProduct extends EntityPathBase<TypeProduct> {
 
     protected QSupplier supplier;
 
-    public QTypeProduct(String variable) {
-        this(TypeProduct.class, forVariable(variable), INITS);
+    public QProductType(String variable) {
+        this(ProductType.class, forVariable(variable), INITS);
     }
 
-    public QTypeProduct(Path<? extends TypeProduct> path) {
+    public QProductType(Path<? extends ProductType> path) {
         this(path.getType(), path.getMetadata(), path.getMetadata().isRoot() ? INITS : PathInits.DEFAULT);
     }
 
-    public QTypeProduct(PathMetadata<?> metadata) {
+    public QProductType(PathMetadata<?> metadata) {
         this(metadata, metadata.isRoot() ? INITS : PathInits.DEFAULT);
     }
 
-    public QTypeProduct(PathMetadata<?> metadata, PathInits inits) {
-        this(TypeProduct.class, metadata, inits);
+    public QProductType(PathMetadata<?> metadata, PathInits inits) {
+        this(ProductType.class, metadata, inits);
     }
 
-    public QTypeProduct(Class<? extends TypeProduct> type, PathMetadata<?> metadata, PathInits inits) {
+    public QProductType(Class<? extends ProductType> type, PathMetadata<?> metadata, PathInits inits) {
         super(type, metadata, inits);
         this.supplier = inits.isInitialized("supplier") ? new QSupplier(forProperty("supplier")) : null;
     }

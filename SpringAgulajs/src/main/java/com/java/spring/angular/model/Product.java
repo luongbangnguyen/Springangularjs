@@ -12,12 +12,12 @@ import com.java.model.ModelProduct;
 @Table(name="product",indexes={@Index(columnList = "name")})
 public class Product extends ModelProduct{
 	
-	private TypeProduct typeProduct;
+	private ProductType typeProduct;
 	@ManyToOne
-	public TypeProduct getTypeProduct() {
+	public ProductType getTypeProduct() {
 		return typeProduct;
 	}
-	public void setTypeProduct(TypeProduct typeProduct) {
+	public void setTypeProduct(ProductType typeProduct) {
 		this.typeProduct = typeProduct;
 	}
 	
