@@ -5,8 +5,7 @@
 	id="WebApp_ID" version="3.0">
 	<display-name>SpringAngular</display-name>
 	<listener>
-		<description>
-		Used to cleanup when a session is destroyed</description>
+		<description>Used to cleanup when a session is destroyed</description>
 		<display-name>ZK Session cleaner</display-name>
 		<listener-class>org.zkoss.zk.ui.http.HttpSessionListener</listener-class>
 	</listener>
@@ -20,7 +19,14 @@
 		<servlet-name>mvc-dispatcher</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
-	<servlet>
+	<filter>
+		<filter-name>springSecurityFilterChain</filter-name>
+		<filter-class>
+		org.springframework.web.filter.DelegatingFilterProxy
+		</filter-class>
+	</filter>
+	 
+<!-- 	<servlet>
 		<description>
 		The ZK loader for ZUML pages</description>
 		<servlet-name>zkLoader</servlet-name>
@@ -61,5 +67,5 @@
 	</filter-mapping>
 	<welcome-file-list>
 		<welcome-file>home</welcome-file>
-	</welcome-file-list>
+	</welcome-file-list>  -->
 </web-app>

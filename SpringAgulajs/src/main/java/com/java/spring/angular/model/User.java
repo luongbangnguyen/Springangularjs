@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.Index;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.java.model.Model;
@@ -32,6 +33,7 @@ public class User extends Model implements  Serializable{
 	private String mobile;
 	private String landLine;
 	private String image;
+	private Role role;
 
 	public User(String email){
 		this(email,null);
@@ -173,6 +175,16 @@ public class User extends Model implements  Serializable{
 	public void setImage(String image) {
 		this.image = image;
 	}
+
+	@ManyToOne
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+	
 	
 
 }
